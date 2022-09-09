@@ -16,3 +16,5 @@ Generate api key and access token  for your twitter account with elevated option
       ii) if you want to see the timeline of your twitter account , enter 2 , you will be able to see the Timeline
 
       iii) if you want to exit , enter 3
+
+5. screenshots of the project are in screenshot folder
