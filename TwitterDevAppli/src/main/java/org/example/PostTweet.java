@@ -1,5 +1,7 @@
 package org.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
@@ -8,7 +10,9 @@ import java.util.Scanner;
 public class PostTweet {
 
     public static void postTweet(String apiKey,String apiSec,String accessToken,String accessTokenSec) {
-        System.out.println("Enter the tweet to post");
+        Logger logger = LoggerFactory.getLogger(PostTweet.class);
+        logger.info("Enter the tweet to post");
+
         Scanner sc = new Scanner(System.in);
         String tweet= sc.nextLine();
 
@@ -23,10 +27,13 @@ public class PostTweet {
 
         try{
             twitter.updateStatus(tweet);
-            System.out.println("Successfully updated tweet.\n"+"Check the twitter account to see the post");
+
+            logger.info("Successfully updated tweet.\n"+"Check the twitter account to see the post");
+
         }
         catch(Exception e){
-            System.out.println(e);
+            logger.error("{}",e);
+
         }
 
     }

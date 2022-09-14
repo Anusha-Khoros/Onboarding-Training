@@ -1,9 +1,14 @@
 package org.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
+
+import static org.slf4j.LoggerFactory.*;
 
 public class Main {
     public static void main(String args[]) throws IOException{
@@ -17,10 +22,12 @@ public class Main {
         Scanner sc=new Scanner(System.in);
         boolean flag=true;
         while(flag){
+            Logger logger = LoggerFactory.getLogger(Main.class);
             System.out.println("Enter the choice : ");
             System.out.println("1. Post a tweet");
             System.out.println("2. Getting a timeline");
             System.out.println("3. Exit");
+
             int choice=sc.nextInt();
             if(choice==3){
                 break;
@@ -32,7 +39,7 @@ public class Main {
                 case 2: GetTimeline timelineObject= new GetTimeline();
                     timelineObject.getTimeline(apiKey,apiSec,accessToken,accessTokenSec);
                     break;
-                default:System.out.println("wrong choice");
+                default:logger.info("Wrong choice");
                     break;
             }
         }
