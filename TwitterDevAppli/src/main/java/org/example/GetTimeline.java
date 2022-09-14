@@ -1,15 +1,15 @@
 package org.example;
 
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.TwitterFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
 import java.util.List;
 
 public class GetTimeline {
     public static void getTimeline(String apiKey,String apiSec,String accessToken,String accessTokenSec) {
-
+        Logger logger = LoggerFactory.getLogger(PostTweet.class);
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
@@ -22,16 +22,15 @@ public class GetTimeline {
 
         try{
 
-            List<Status> statuses = twitter.getHomeTimeline();
-            System.out.println("Showing home timeline.");
-            for (Status status : statuses) {
-                System.out.println(status.getUser().getName() + ":" +
-                        status.getText());
+            Query query = new Query("Kohli");
+            QueryResult result = twitter.search(query);
+            for (Status status : result.getTweets()) {
+                System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
             }
-            System.out.println("Successfully updated tweet");
+
         }
         catch(Exception e){
-            System.out.println(e);
+            logger.error("{}",e);
         }
 
     }
