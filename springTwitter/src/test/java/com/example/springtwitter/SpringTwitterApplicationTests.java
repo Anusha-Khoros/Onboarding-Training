@@ -3,8 +3,9 @@ package com.example.springtwitter;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
-class SpringTwitterApplicationTests {
+public class SpringTwitterApplicationTests {
 
     @Test
     void contextLoads() {
