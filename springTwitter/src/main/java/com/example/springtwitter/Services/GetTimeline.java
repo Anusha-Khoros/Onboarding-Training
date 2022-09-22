@@ -30,7 +30,7 @@ public class GetTimeline extends io.dropwizard.Configuration {
 
 
 
-public ArrayList<String> getTimeL()throws IOException {
+public List<Status> getTimeL()throws IOException {
 
     Logger logger = LoggerFactory.getLogger(GetTimeline.class);
    /* FileReader keys=new FileReader("/Users/anusha.c/Desktop/Onboarding-Training/springTwitter/src/main/resources/config.yml");
@@ -66,7 +66,7 @@ public ArrayList<String> getTimeL()throws IOException {
             logger.info(status.getUser().getName() );
             T.add(status.getText());
         }
-        return  T;
+        return  statuses;
     } catch (Exception var11) {
         logger.error("{}", var11);
         return null;
