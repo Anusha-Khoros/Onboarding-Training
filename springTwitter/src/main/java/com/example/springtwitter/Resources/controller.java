@@ -7,6 +7,7 @@ import com.example.springtwitter.Services.PostTweet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
+import twitter4j.Status;
 import twitter4j.TwitterException;
 
 import java.io.IOException;
@@ -33,11 +34,11 @@ public class controller {
         this.pojo=pojoSpecs;
     }
 
-
+    @CrossOrigin
     @GetMapping("/timeline")
     @Cacheable(cacheNames = "timeline")
-    public ArrayList gettingTimeLine() throws IOException {
-        ArrayList msg = gettingObj.getTimeL();
+    public List<Status> gettingTimeLine() throws IOException {
+        List<Status> msg = gettingObj.getTimeL();
         return msg;
     }
 

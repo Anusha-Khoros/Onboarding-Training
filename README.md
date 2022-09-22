@@ -1,20 +1,17 @@
-TwitterDevAppli:
+**Getting the timeline and Posting to a Twitter**
 
-(NOTE:  api keys & access keys are used for my account so , posts will be shared in my account)
+**Getting timeline in the root**
+- To start the project first run the springTwitter application in the background
 
-1. pom.xml- dependency created for twitter4j
+- In the next step open the onboarding-ui application and run this application in the terminal by typing: *node src/main.js* or *nodemon src/main.js*
 
-2. twitter4j.properties- add twitter api keys and access keys of your twitter account.
-Generate api key and access token  for your twitter account with elevated option.(Note: Read write option should be enabled)
+- Now in the browser type *localhost:9000* to get the timeline
 
-3. Created 2 classes PostTweet( for adding posts to our twitter account)  and GetTimeline ( for getting timeline of posts - for this we need to follow some account)
+**For getting timeline in json format and posting tweet in twitter**
+- Open the postman website
+- In the *GET* method type *http://localhost:8080/api/1.0/twitter/timeline* to get the timeline from the twitter account
+- In the *GET* method type *http://localhost:8080/api/1.0/twitter/timeline/filter* to get filtered tweets (Note - in this project i have filtered tweets with keyword -*India*)
+- In the *POST* method type *http://localhost:8080/api/1.0/twitter/tweet* and in the body , select raw and type the text you want to post it on twitter.
+The *GET* method works on browser too but *POST* method works only in Postman.
 
-4. Running the project : enter the choice from the menu.
-
-      i) if you want to post enter 1 & press enter. type the text you want to post in twitter , then click enter , the message will be posted on twitter.
-
-      ii) if you want to see the timeline of your twitter account , enter 2 , you will be able to see the Timeline
-
-      iii) if you want to exit , enter 3
-
-5. screenshots of the project are in screenshot folder
+(Note : In the customer.yml file in the springTwitter application type the api keys and access tokens what you have generated in the twitter developer account)
